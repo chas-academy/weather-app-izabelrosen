@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import { Header } from './component/Header';
 // import { Footer } from './component/Footer/Footer';
-import { Header, Content, Footer, Form} from './component';
+import { Header, Content, Form, Location, Footer} from './component';
 
 import './App.css';
 
@@ -13,6 +13,7 @@ class App extends Component {
         <Header />
         <Content> 
             <Form />
+            <Location />
         </Content>
         <Footer />
       </div>
