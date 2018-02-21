@@ -11,14 +11,13 @@ class Form extends Component {
     onSubmit(e) {
       e.preventDefault();
   
+
+      // Search for a location and get 10 days weather rapport. 
+      
         const cityname = e.nativeEvent.target.elements[0].value;
         const apiKey = `77c7d99a124f26c235b411cb8645d14b`;
         const apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityname}&APPID=${apiKey}&units=metric&cnt=10`;
         
-
-      // gets data for the current day:
-    //   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&APPID=${apiKey}&units=metric&cnt=7`)
-    //   fetch(`https://api.openweathermap.org/data/2.5/forecast/daily?q=${cityname}&APPID=${apiKey}&units=metric&cnt=10`)
         
     fetch(apiURL)
         .then(res => res.json())
