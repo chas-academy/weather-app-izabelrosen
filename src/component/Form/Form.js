@@ -13,10 +13,12 @@ class Form extends Component {
   
 
       // Search for a location and get 10 days weather rapport. 
-      
+
         const cityname = e.nativeEvent.target.elements[0].value;
         const apiKey = `77c7d99a124f26c235b411cb8645d14b`;
         const apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityname}&APPID=${apiKey}&units=metric&cnt=10`;
+        //const apiURLday = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&APPID=${apiKey}&units=metric`;
+
         
         
     fetch(apiURL)
@@ -29,6 +31,9 @@ class Form extends Component {
             dt_txt: res.list[0].dt_txt,
             humidity: res.list[0].main.humidity,
             wind: res.list[0].wind.speed,
+            description: res.list[0].weather[0].description,
+            // weather: res.weather
+            // icon: res.list[0].weather[0].icon
             // sunrise: res.sun.rise
             // sunrise: res.sys.sunrise,
             // sunset: res.sys.sunset
@@ -41,11 +46,11 @@ class Form extends Component {
         }, function() {
             // console.log(res);
             // console.log(res.sys.sunset);
-            console.log(res);
+            console.log(this.state.icon);
+            
 
           })
         });
-
 
     }
     render() {
@@ -57,6 +62,7 @@ class Form extends Component {
             </form>
             <p> { this.state.dt_txt } </p>
             <p> { this.state.city } </p>
+            <p> { this.state.description } </p>
             <p> Temperature: { this.state.temp }°C </p>
             <p> Humidity: { this.state.humidity } %</p>
             <p> Wind: { this.state.wind } km/h </p>
@@ -65,6 +71,7 @@ class Form extends Component {
           </div>
         );
       }
+
     }
 
   
