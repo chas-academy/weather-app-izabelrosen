@@ -30,11 +30,16 @@ class Today extends Component {
                 .then(res => res.json())
                 .then(res => {
                   this.setState({
+                    weather: res,
+                    name: res.name,
                     temp: res.main.temp,
                     sunrise: res.sys.sunrise,
-                    sunset: res.sys.sunset
+                    sunset: res.sys.sunset,
+                    humidity: res.main.humidity,
+                    wind: res.wind.speed,
+                    
                   }, function() {
-                       console.log(res);
+                       console.log(res.wind.speed);
           
                     })
                   });
@@ -46,7 +51,7 @@ class Today extends Component {
     
         if (this.state.weather.length) {
     
-            console.log(this.state.weather[0]);
+            // console.log(this.state.weather[0]);
             
              return (
                  this.state.weather
@@ -63,27 +68,34 @@ class Today extends Component {
     
              )
         } else {
-            return <p>Loading …</p>
+            // return <p>Loading …</p>
         }
         
     }
 
     render() {
-        var myDate = new Date( this.state.sunrise *1000);
-        // document.write(myDate.toGMTString()+"<br>"+myDate.toLocaleString());
-        console.log(myDate); //Skriver ut tiden i konsollen men inte på sidan. WHY?!
 
         var moment = require('moment');
         var sunrise = moment.unix(this.state.sunrise).utc(Date);
         var sunset = moment.unix(this.state.sunset).utc(Date);
-        console.log(sunset.Moment);
+
+        const celsius = (this.state.temp);
+        const fahrenheit = celsius * 9 / 5 + 32;
+        const bothTemp = `${celsius}°C is ${fahrenheit}°F`;
+          console.log(bothTemp);
+
+        
         
         return (
             <div>
-                <h3> Sunrise: <br />{moment(sunrise).format("D/MM/YYYY HH.mm")} </h3>
-                
-                <h3> Sunset: <br />{moment(sunset).format("D/MM/YYYY HH.mm")} </h3>
-                <h3> Temp: <br /> { this.state.temp } </h3>
+                <h2>{moment(this.state.dt_txt).format("dddd D/MM")}</h2>
+                <h3>{ this.state.name }</h3>
+                <h3> Temperature: <br /> { this.state.temp }°C </h3>
+                <h3> {fahrenheit}°F </h3>
+                <p> Wind: { this.state.wind } m/s </p>
+                <p> Humidity: { this.state.wind } % </p>
+                <p> Sunrise: <br />{moment(sunrise).format("HH.mm")} </p>
+                <p> Sunset: <br />{moment(sunset).format("HH.mm")} </p>
                 
 
                  { this.renderToday() }
