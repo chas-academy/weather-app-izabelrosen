@@ -50,13 +50,14 @@ class Location extends Component {
 
 
 renderForecast() {
+    var moment = require('moment');
     if (this.state.forecast.length) {
         console.log(this.state.forecast[0]);
         return (
             this.state.forecast
             .map((day, i) => 
             <ul key={i} id="weather-day"> 
-                <li>{day.dt_txt}</li>
+                <li>{moment(day.dt_txt).format("D MMM YYYY")}</li>
                 <li><img src={`http://openweathermap.org/img/w/${day.weather[0].icon}.png`} /></li>
                 <li>{Math.floor(day.main.temp)}°C</li>
                 <li>{day.weather[0].main}</li>

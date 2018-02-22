@@ -74,7 +74,7 @@ class Form extends Component {
                <input type="text" placeholder="Type the city name here" name="city" />
                <button type="submit">Get weather</button>
             </form>
-            <h3> The weather in { this.state.city } </h3>
+            <h3>{ this.state.city } </h3>
 
             { this. renderSearch() }
 
