@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './Location.css';
+
 class Location extends Component {
     constructor() {
         super();
@@ -54,16 +56,12 @@ renderForecast() {
             this.state.forecast
             .map((day, i) => 
             <ul key={i} id="weather-day"> 
-                <ul>
-                    <li>{day.dt_txt}</li>
-                    <li><img src={`http://openweathermap.org/img/w/${this.state.icon}.png`} /></li>
-                    <li>{day.main.temp}°C</li>
-                    <li>{day.weather[0].main}</li>
-                    <li>{day.main.humidity}%</li>
-                    <li>{day.wind.speed}m/s</li>
-                    <hr />
-                    
-                </ul>
+                <li>{day.dt_txt}</li>
+                <li><img src={`http://openweathermap.org/img/w/${day.weather[0].icon}.png`} /></li>
+                <li>{Math.floor(day.main.temp)}°C</li>
+                <li>{day.weather[0].main}</li>
+                <li>{day.main.humidity}%</li>
+                <li>{day.wind.speed}m/s</li>
             </ul>
         )
         )
@@ -75,16 +73,7 @@ renderForecast() {
     render() {
         return (
             <div>
-            <hr />
-            
-                <p> Your current location: <br /> { this.state.city } </p>
-                <img src={`http://openweathermap.org/img/w/${this.state.icon}.png`} />
-                <p> Temperature: { this.state.temp }°C </p>
-                <p> Humidity: { this.state.humidity } %</p>
-                <p> Wind: { this.state.wind } m/h </p>
-                <p> Sunrise: { this.state.sunrise } </p>
-                <p> Sunset: { this.state.sunset } </p>
-                <p> { this.state.dt_txt } </p>
+                <h3> 5 day forecast for your current location: <br /> { this.state.city } </h3>
 
                 { this.renderForecast() }
             </div>
