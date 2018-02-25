@@ -1,0 +1,15 @@
+div.form--search form input {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: auto;
+    width: 20rem;
+    height: 1.5rem;
+    border-color: 2px solid rgb(255, 208, 0);
+    border: 2px solid rgb(255, 208, 0);
+
+}
+
+ul#weather--week {
+    justify-content: center;
+}
