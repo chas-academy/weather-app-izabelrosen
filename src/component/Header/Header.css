@@ -3,13 +3,21 @@
     height: 80px;
   }
   
-  .App-header {
-    background-color: white;
-    height: 150px;
+  .Header {
+    background-image: url(pexels-photo-844297.jpeg);
+    background-position: center;
+    opacity:0.5;
+    height: 200px;
     padding: 20px;
     color: white;
   }
   
   .App-title {
     font-size: 1.5em;
+  }
+
+  h1, nav {
+  display: flex;
+  justify-content: center;
+  align-content: center;
   }
