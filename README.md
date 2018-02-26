@@ -1,4 +1,4 @@
-Weather-app [izabelrosen.chas.academy/weather/]
+[Weather-app] (http://izabelrosen.chas.academy/weather/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
