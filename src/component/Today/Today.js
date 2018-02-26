@@ -39,7 +39,6 @@ class Today extends Component {
                     wind: res.wind.speed,
                     
                   }, function() {
-                    //    console.log(res.wind.speed);
           
                     })
                   });
@@ -68,7 +67,6 @@ class Today extends Component {
                 <p> Sunrise: <br />{moment(sunrise).format("HH.mm")} </p>
                 <p> Sunset: <br />{moment(sunset).format("HH.mm")} </p>
                 
-                  
             </div>
         );
     }

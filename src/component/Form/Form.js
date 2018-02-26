@@ -17,11 +17,9 @@ class Form extends Component {
   
 
       // Search for a location and get 5 days weather rapport. 
-
         const cityname = e.nativeEvent.target.elements[0].value;
         const apiKey = `77c7d99a124f26c235b411cb8645d14b`;
         const apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityname}&APPID=${apiKey}&units=metric`;
-        //const apiURLday = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&APPID=${apiKey}&units=metric`;
 
         
         
@@ -39,9 +37,7 @@ class Form extends Component {
             wind: res.list[0].wind.speed,
             description: res.list[0].weather[0].description,
             
-        }, function() {
-            console.log(res);
-            
+        }, function() {            
 
           })
         });
@@ -76,10 +72,6 @@ class Form extends Component {
        </ul>
         )
     } 
-    // else {
-    //     return <p>Search for a location...</p>
-    //   }
-      
     }
 
     render() {

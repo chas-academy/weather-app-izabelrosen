@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 
-import { Today } from '../Today/Today';
 import './Location.css';
 
-// import Today from '.Today.js';
 Array.prototype.groupBy = function (prop, endIndex = undefined) {
     
-    // reduce function 
     return this.reduce(function (groups, item) {
         const value = item[prop].substring(0, endIndex);
         
@@ -40,7 +37,7 @@ class Location extends Component {
                 this.setState({ latitude });
                 const apiKey = `77c7d99a124f26c235b411cb8645d14b`;
                 const apiURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&APPID=${apiKey}&units=metric`;
-                const apiURLsun = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${apiKey}&units=metric`;
+                
               fetch(apiURL)
               .then(res => res.json())
               .then(res => {
@@ -56,7 +53,7 @@ class Location extends Component {
                   forecast: res.list,
                   weather: res.sys,
                 }, function() {
-                    //  console.log(res.sunrise);
+                    
         
                   })
                 });
